@@ -37,7 +37,7 @@ const Hero = () => {
             hi, i&apos;m Amr, A React-Next.js Developer Based in Egypt
           </p>
 
-          <a href="#about">
+          <a href="#about" className="max-sm:translate-y-7">
             <MagicButton
               text="Show My Work"
               icon={<FaLocationArrow />}
