@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/utils/cn"
 import Link from "next/link"
@@ -66,7 +66,12 @@ export const PinPerspective = ({
   title?: string
   href?: string
 }) => {
-  return (
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+  return isClient ? (
     <motion.div className="pointer-events-none z-[60] flex h-80 w-full items-center justify-center opacity-0 transition duration-500 group-hover/pin:opacity-100">
       <div className="inset-0 -mt-7 h-full w-full flex-none">
         <div className="absolute inset-x-0 top-0 flex justify-center">
@@ -162,5 +167,5 @@ export const PinPerspective = ({
         </>
       </div>
     </motion.div>
-  )
+  ) : null
 }

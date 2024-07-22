@@ -107,9 +107,17 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "I worked with Amr on several frontend apps using React. I learnt a lot about React from Amr, Amr can explain deep topics in React with simple words and examples. Also, he know well how to choose the proper technology for the project in hand. I am looking forward to work with him again.",
+    name: "Mohamed abdelsalam",
+    title: "Fullstack developer",
+    img: "/abso.jpg",
+  },
+  {
+    quote:
+      "Amr is an exceptional front-end React developer. His attention to detail and ability to create user-friendly interfaces consistently exceed expectations. He combines technical proficiency with a keen eye for design, making him a valuable asset to any project.",
+    name: "Islam mohamed",
+    title: "PHP Laravel developer",
+    img: "/islam.jpg",
   },
   {
     quote:

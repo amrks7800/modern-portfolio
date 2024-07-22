@@ -14,6 +14,7 @@ export const InfiniteMovingCards = ({
     quote: string
     name: string
     title: string
+    img?: string
   }[]
   direction?: "left" | "right"
   speed?: "fast" | "normal" | "slow"
@@ -100,13 +101,17 @@ export const InfiniteMovingCards = ({
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
-              <span className="relative z-20 text-sm font-normal leading-[1.6] text-white md:text-lg">
+              <span className="relative z-20 block min-h-24 text-sm font-normal leading-[1.6] text-white md:text-lg">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
-                  <div className="me-3">
-                    <img src="/profile.svg" alt="profile" />
+                  <div className="me-3 aspect-square w-10 overflow-hidden rounded-full">
+                    <img
+                      src={item.img || "/profile.svg"}
+                      alt="profile"
+                      className="block h-full w-full"
+                    />
                   </div>
                   <div className="flex flex-col gap-1">
                     <span className="text-xl font-bold leading-[1.6] text-white">
