@@ -23,7 +23,11 @@ const RecentProjects = () => {
                 >
                   <img src="/bg.png" alt="bgimg" />
                 </div>
-                <img src={img} alt="cover" className="absolute bottom-0 z-10" />
+                <img
+                  src={img}
+                  alt="cover"
+                  className="absolute bottom-0 z-10 max-w-[90%] rounded-lg"
+                />
               </div>
 
               <h1 className="line-clamp-1 text-base font-bold md:text-xl lg:text-2xl">

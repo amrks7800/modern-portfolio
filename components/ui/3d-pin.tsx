@@ -75,9 +75,9 @@ export const PinPerspective = ({
     <motion.div className="pointer-events-none z-[60] flex h-80 w-full items-center justify-center opacity-0 transition duration-500 group-hover/pin:opacity-100">
       <div className="inset-0 -mt-7 h-full w-full flex-none">
         <div className="absolute inset-x-0 top-0 flex justify-center">
-          <a
-            href={href}
-            target={"_blank"}
+          <div
+            // href={href}
+            // target={"_blank"}
             className="relative z-10 flex items-center space-x-2 rounded-full bg-zinc-950 px-4 py-0.5 ring-1 ring-white/10"
           >
             <span className="relative z-20 inline-block py-0.5 text-xs font-bold text-white">
@@ -85,7 +85,7 @@ export const PinPerspective = ({
             </span>
 
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
-          </a>
+          </div>
         </div>
 
         <div
