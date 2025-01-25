@@ -3,14 +3,18 @@
 import { mixColors } from "@/utils"
 import { ReactNode, useEffect, useState } from "react"
 
-const root = document ? document.documentElement : null
 const Main = ({ children }: { children: ReactNode }) => {
   const [render, setRender] = useState(false)
   const [color, setColor] = useState<string | null>(null)
 
   useEffect(() => {
     setRender(true)
+  }, [])
 
+  useEffect(() => {
+    if (!document) return
+
+    const root = document?.documentElement || null
     if (!root) return
 
     const interval = setInterval(() => {
