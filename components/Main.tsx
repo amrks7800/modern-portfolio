@@ -10,11 +10,12 @@ const Main = ({ children }: { children: ReactNode }) => {
     setRender(true)
   }, [])
 
+  if (!render) return null
+
   const root = document.documentElement
 
   const color = getComputedStyle(root).getPropertyValue("--clr-primary-purple")
 
-  if (!render) return null
   return (
     <main
       className="dark relative mx-auto flex flex-col items-center justify-center overflow-hidden sm:px-10"
