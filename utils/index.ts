@@ -5,10 +5,14 @@ export function mixColors(hexColor1: string, hexColor2: string) {
 
   if (!rgb1 || !rgb2) return
 
+  const per = 0.1
+
+  const per2 = 1 - per
+
   // Calculate the mixed RGB values
-  const mixedR = Math.round(rgb1.r * 0.9 + rgb2.r * 0.1)
-  const mixedG = Math.round(rgb1.g * 0.9 + rgb2.g * 0.1)
-  const mixedB = Math.round(rgb1.b * 0.9 + rgb2.b * 0.1)
+  const mixedR = Math.round(rgb1.r * per2 + rgb2.r * per)
+  const mixedG = Math.round(rgb1.g * per2 + rgb2.g * per)
+  const mixedB = Math.round(rgb1.b * per2 + rgb2.b * per)
 
   // Convert the mixed RGB values back to hex
   const mixedHex = rgbToHex(mixedR, mixedG, mixedB)
