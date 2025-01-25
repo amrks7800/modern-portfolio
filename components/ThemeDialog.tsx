@@ -53,6 +53,9 @@ const ThemeDialog = () => {
                 color: getComputedStyle(root).getPropertyValue(
                   "--clr-primary-purple",
                 ),
+
+                width: "30px",
+                height: "30px",
               }}
               size={50}
             />
