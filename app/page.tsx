@@ -4,13 +4,14 @@ import Experience from "@/components/Experience"
 import Footer from "@/components/Footer"
 import Grid from "@/components/Grid"
 import Hero from "@/components/Hero"
+import Main from "@/components/Main"
 import RecentProjects from "@/components/RecentProjects"
 import { FloatingNav } from "@/components/ui/floating-navbar"
 import { navItems } from "@/data"
 
 export default function Home() {
   return (
-    <main className="dark relative mx-auto flex flex-col items-center justify-center overflow-hidden bg-black-100 sm:px-10">
+    <Main>
       <div className="w-full max-w-7xl">
         <FloatingNav navItems={navItems} />
         <Hero />
@@ -21,6 +22,6 @@ export default function Home() {
         <Approach />
         <Footer />
       </div>
-    </main>
+    </Main>
   )
 }

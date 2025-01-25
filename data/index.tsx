@@ -1,8 +1,15 @@
+import { FiExternalLink } from "react-icons/fi"
+
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
+  {
+    name: "Blog",
+    link: "https://personal-blog-zeta-ebon.vercel.app/",
+    icon: <FiExternalLink />,
+  },
 ]
 
 export const gridItems = [

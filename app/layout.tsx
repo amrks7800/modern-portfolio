@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "./provider"
+import ThemeDialog from "@/components/ThemeDialog"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " text-blue-100"}>
+      <body className={inter.className + " relative text-blue-100"}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -26,6 +27,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="dark">{children}</div>
+          <ThemeDialog />
         </ThemeProvider>
       </body>
     </html>
