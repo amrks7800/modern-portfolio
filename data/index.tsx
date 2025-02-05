@@ -56,7 +56,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Built a React.js utility library",
+    title: "Built My Own code blog",
     description: "The Inside Scoop",
     className: "md:col-span-2 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",

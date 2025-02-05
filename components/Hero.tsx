@@ -1,7 +1,10 @@
 import { FaLocationArrow } from "react-icons/fa"
+import { MdOutlineContactPage } from "react-icons/md"
+
 import MagicButton from "./ui/MagicButton"
 import { Spotlight } from "./ui/Spotlight"
 import { TextGenerateEffect } from "./ui/TextGenerateEffect"
+import Link from "next/link"
 
 const Hero = () => {
   return (
@@ -37,13 +40,26 @@ const Hero = () => {
             hi, i&apos;m Amr, A React-Next.js Developer Based in Egypt
           </p>
 
-          <a href="#about" className="max-sm:translate-y-7">
-            <MagicButton
-              text="Show My Work"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+          <div className="flex flex-col gap-6 lg:flex-row">
+            <a href="#about" className="max-sm:translate-y-7">
+              <MagicButton
+                text="Show My Work"
+                icon={<FaLocationArrow />}
+                position="right"
+              />
+            </a>
+            <Link
+              href="/AMR_KHALED_CV.pdf"
+              className="max-sm:translate-y-7"
+              target="_blank"
+            >
+              <MagicButton
+                text="Show My CV"
+                icon={<MdOutlineContactPage />}
+                position="right"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

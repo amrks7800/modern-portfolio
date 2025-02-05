@@ -115,9 +115,9 @@ export const BentoGridItem = ({
             {id === 5 && (
               <a
                 className="flex items-end gap-2 text-purple underline"
-                href="https://www.npmjs.com/package/@dev-amr/react-sugartax"
+                href="https://personal-blog-zeta-ebon.vercel.app/"
               >
-                React-sugartax <FaLink size={30} className="" />
+                CodeVerse
               </a>
             )}
           </div>
