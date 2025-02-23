@@ -2,13 +2,11 @@
 
 import { cn } from "@/utils/cn"
 import { BackgroundGradientAnimation } from "./GradientBg"
-import GlobeDemo from "./GridGlobe"
 import Lottie from "react-lottie"
 import { useState } from "react"
 import animationData from "@/data/confetti.json"
 import MagicButton from "./MagicButton"
 import { IoCopyOutline } from "react-icons/io5"
-import { FaLink } from "react-icons/fa"
 
 export const BentoGrid = ({
   className,
@@ -115,14 +113,12 @@ export const BentoGridItem = ({
             {id === 5 && (
               <a
                 className="flex items-end gap-2 text-purple underline"
-                href="https://personal-blog-zeta-ebon.vercel.app/"
+                href="https://www.github.com/amrks7800/elegant-store"
               >
-                CodeVerse
+                Elegant store
               </a>
             )}
           </div>
-
-          {id === 2 && <GlobeDemo />}
 
           {id === 3 && (
             <div className="absolute -right-3 flex w-fit gap-1 lg:-right-2 lg:gap-5">
