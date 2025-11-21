@@ -18,7 +18,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[14rem] md:grid-cols-3",
+        "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[16rem] md:grid-cols-3 lg:auto-rows-[18rem]",
         className,
       )}
     >
@@ -63,7 +63,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        `group/bento relative flex flex-col justify-between space-y-4 overflow-hidden rounded-3xl border-2 border-white/[0.1] bg-white shadow-input transition duration-200 hover:shadow-xl`,
+        `group/bento hover:border-purple/30 hover:shadow-purple/10 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.1] shadow-input transition-all duration-300 hover:shadow-xl md:rounded-3xl`,
         className,
       )}
       style={{
@@ -72,105 +72,123 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`${id === 6 ? "flex justify-center" : "h-full"}`}>
-        <div className="absolute h-full w-full">
-          {img && (
-            <img
-              src={img}
-              alt={img}
-              className={cn(imgClassName, "object-cover object-center")}
-            />
-          )}
-        </div>
+      {/* Background Images Layer */}
+      <div className="absolute inset-0 z-0">
+        {img && (
+          <img
+            src={img}
+            alt={img}
+            className={cn(imgClassName, "object-cover object-center")}
+          />
+        )}
+      </div>
+
+      {/* Spare Image Layer */}
+      {spareImg && (
         <div
-          className={`absolute -bottom-5 right-0 ${id === 5 && "w-full opacity-80"}`}
+          className={`absolute -bottom-5 right-0 z-[5] ${id === 5 && "w-full opacity-80"}`}
         >
-          {spareImg && (
-            <img
-              src={spareImg}
-              alt={spareImg}
-              className={"h-full w-full object-cover object-center"}
-            />
-          )}
+          <img
+            src={spareImg}
+            alt={spareImg}
+            className="h-full w-full object-cover object-center"
+          />
         </div>
-        {id === 6 && (
+      )}
+
+      {/* Background Animation for Item 6 */}
+      {id === 6 && (
+        <div className="absolute inset-0 z-0">
           <BackgroundGradientAnimation>
             <div className="absolute z-50 flex items-center justify-center font-bold text-white"></div>
           </BackgroundGradientAnimation>
+        </div>
+      )}
+
+      {/* Content Layer */}
+      <div
+        className={cn(
+          titleClassName,
+          "relative z-10 flex min-h-[250px] flex-col justify-between p-5 transition duration-200 group-hover/bento:translate-x-1 md:min-h-[280px] md:p-6 lg:min-h-0 lg:p-10",
+          id === 6 && "items-center justify-center",
         )}
-
-        <div
-          className={cn(
-            titleClassName,
-            "group-hover:/bento:translate-x-2 relative flex min-h-40 flex-col p-2 px-5 transition duration-200 md:h-full lg:p-10",
-          )}
-        >
-          <div className="z-10 font-sans text-sm font-extralight text-[#c1c2d3] dark:text-neutral-300 md:text-xs">
-            {description}
-          </div>
-          <div className="z-[60] mb-2 mt-2 max-w-96 font-sans text-lg font-bold text-neutral-600 dark:text-neutral-200 lg:text-3xl">
-            {title}{" "}
-            {id === 5 && (
-              <a
-                className="flex items-end gap-2 text-purple underline"
-                href="https://www.github.com/amrks7800/elegant-store"
-              >
-                Elegant store
-              </a>
-            )}
-          </div>
-
-          {id === 3 && (
-            <div className="absolute -right-3 flex w-fit gap-1 lg:-right-2 lg:gap-5">
-              <div className="flex flex-col gap-3 lg:gap-4">
-                {["React.js", "Next.js", "Typescript"].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg bg-[#10132e] px-3 py-2 text-center text-xs opacity-50 lg:px-3 lg:py-4 lg:text-base lg:opacity-100"
-                  >
-                    {item}
-                  </div>
-                ))}
-                <span className="rounded-lg bg-[#10132e] px-3 py-4 text-center" />
-              </div>
-              <div className="flex flex-col gap-3 lg:gap-4">
-                <span className="rounded-lg bg-[#10132e] px-3 py-4 text-center" />
-                {["TailwindCss", "Redux", "Zod"].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg bg-[#10132e] px-3 py-2 text-center text-xs opacity-50 lg:px-3 lg:py-4 lg:text-base lg:opacity-100"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
+      >
+        <div className="flex-1">
+          {description && (
+            <div className="mb-2 font-sans text-sm font-light text-[#c1c2d3] md:text-xs lg:text-sm">
+              {description}
             </div>
           )}
-
-          {id === 6 && (
-            <div className="relative mt-5">
-              <div className="absolute -bottom-5 right-0">
-                <Lottie
-                  options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYMid slice",
-                    },
-                  }}
-                />
-              </div>
-              <MagicButton
-                text={copied ? "email copied" : "copy my email"}
-                icon={<IoCopyOutline />}
-                position="left"
-                otherClasses="bg-[#161a31]"
-                handleClick={handleCopy}
-              />
-            </div>
+          <div className="mb-2 mt-2 font-sans text-xl font-bold leading-tight text-neutral-200 md:text-2xl lg:text-3xl">
+            {title}
+          </div>
+          {id === 5 && (
+            <a
+              className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-purple underline transition-all hover:gap-3 md:text-base lg:text-lg"
+              href="https://www.github.com/amrks7800/elegant-store"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Elegant store
+            </a>
           )}
         </div>
+
+        {/* Tech Stack for Item 3 */}
+        {id === 3 && (
+          <div className="mt-5 flex gap-2 md:gap-3 lg:gap-5">
+            <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
+              {["React.js", "Next.js", "TypeScript"].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-lg bg-[#10132e] px-2 py-2 text-center text-[10px] text-white/70 transition-all hover:bg-[#1a1d3e] hover:text-white md:px-3 md:text-xs lg:px-3 lg:py-3 lg:text-sm"
+                >
+                  {item}
+                </div>
+              ))}
+              <span className="hidden rounded-lg bg-[#10132e] px-3 py-3 md:block lg:py-4" />
+            </div>
+            <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
+              <span className="hidden rounded-lg bg-[#10132e] px-3 py-3 md:block lg:py-4" />
+              {["Tailwind", "Redux", "Zod"].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-lg bg-[#10132e] px-2 py-2 text-center text-[10px] text-white/70 transition-all hover:bg-[#1a1d3e] hover:text-white md:px-3 md:text-xs lg:px-3 lg:py-3 lg:text-sm"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Email Copy Button for Item 6 */}
+        {id === 6 && (
+          <div className="w-ful relative mt-5">
+            <div
+              className={`absolute -bottom-5 right-0 ${copied ? "block" : "hidden"}`}
+            >
+              <Lottie
+                options={{
+                  loop: copied,
+                  autoplay: copied,
+                  animationData,
+                  rendererSettings: {
+                    preserveAspectRatio: "xMidYMid slice",
+                  },
+                }}
+              />
+            </div>
+            <MagicButton
+              text={copied ? "Email copied!" : "Copy my email"}
+              icon={<IoCopyOutline />}
+              position="left"
+              otherClasses="bg-[#161a31] w-full"
+              className="w-full!"
+              handleClick={handleCopy}
+            />
+          </div>
+        )}
       </div>
     </div>
   )

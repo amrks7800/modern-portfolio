@@ -20,12 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " relative text-blue-100"}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="dark">{children}</div>
           <ThemeDialog />
         </ThemeProvider>
