@@ -17,7 +17,9 @@ const SkillCard = ({ name, icon }: { name: string; icon: string }) => (
       {/* Icon container with glow */}
       <div className="relative">
         <div className="bg-purple-500/20 absolute inset-0 rounded-full opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="relative h-14 w-14 transition-all duration-300 group-hover:rotate-6 group-hover:scale-110">
+        <div
+          className={`relative h-14 ${icon.includes("form") ? "w-20" : "w-14"} transition-all duration-300 group-hover:rotate-6 group-hover:scale-110`}
+        >
           <Image
             src={icon}
             alt={name}

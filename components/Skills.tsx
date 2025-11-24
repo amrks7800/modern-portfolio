@@ -18,6 +18,8 @@ const skills = [
   { name: "Framer Motion", icon: "/fm.svg" },
   { name: "Shadcn-UI", icon: "/shad.svg" },
   { name: "React-Hook-Form", icon: "/rhf.png" },
+  { name: "Vue.js", icon: "/vu.svg" },
+  { name: "Tanstack Form", icon: "/ts-form.png" },
 ]
 
 const Skills = () => {
