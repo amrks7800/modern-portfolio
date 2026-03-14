@@ -1,33 +1,31 @@
-import { FaLocationArrow } from "react-icons/fa6"
-
 import { socialMedia } from "@/data"
+import { FaLocationArrow } from "react-icons/fa6"
 import MagicButton from "./ui/MagicButton"
+import Image from "next/image"
+import Link from "next/link"
 
 const Footer = () => {
   return (
     <footer className="w-full pb-10 pt-20" id="contact">
-      {/* background grid */}
-      <div className="absolute -bottom-72 left-0 min-h-96 w-full">
+      {/* Background grid decorative */}
+      <div className="absolute -bottom-72 left-0 min-h-96 w-full opacity-20 dark:opacity-50">
         <img
           src="/footer-grid.svg"
           alt="grid"
-          className="h-full w-full opacity-50"
+          className="h-full w-full"
         />
       </div>
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Ready to build something{" "}
+          <span className="text-purple">remarkable</span> together?
         </h1>
-        <p className="my-5 text-center text-white-200 md:mt-10">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
+        <p className="my-5 text-center text-foreground/60 md:mt-10">
+          Whether it&apos;s a fullstack product, a real-time system, or a
+          cross-platform app — reach out and let&apos;s make it happen.
         </p>
-        <a
-          href="mailto:amrkh.business@gmail.com"
-          className="max-sm:translate-y-7"
-        >
+        <a href="mailto:amrkh.business@gmail.com">
           <MagicButton
             text="Let's get in touch"
             icon={<FaLocationArrow />}
@@ -35,19 +33,29 @@ const Footer = () => {
           />
         </a>
       </div>
-      <div className="mt-16 flex flex-col items-center justify-between md:flex-row">
-        <p className="text-sm font-light md:text-base md:font-normal">
-          Copyright © 2024 Amr khaled
+
+      <div className="mt-16 flex flex-col items-center justify-between gap-6 md:flex-row">
+        <p className="text-sm font-light text-foreground/50 md:text-base md:font-normal">
+          Copyright © 2025 Amr Khaled · Fullstack Software Engineer
         </p>
 
-        <div className="flex items-center gap-6 md:gap-3">
+        <div className="flex items-center gap-4">
           {socialMedia.map((info) => (
-            <div
+            <Link
               key={info.id}
-              className="saturate-180 flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-black-300 bg-black-200 bg-opacity-75 backdrop-blur-lg backdrop-filter"
+              href={info.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-border bg-card shadow-sm backdrop-blur-lg transition-all duration-300 hover:scale-110 hover:border-purple/40 hover:shadow-purple/20 hover:shadow-md"
             >
-              <img src={info.img} alt="icons" width={20} height={20} />
-            </div>
+              <Image
+                src={info.img}
+                alt="social icon"
+                width={20}
+                height={20}
+                className="dark:invert-0 dark:filter-none"
+              />
+            </Link>
           ))}
         </div>
       </div>

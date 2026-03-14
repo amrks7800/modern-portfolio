@@ -52,9 +52,7 @@ export const BentoGridItem = ({
 
   const handleCopy = () => {
     navigator.clipboard.writeText("amrkh.business@gmail.com")
-
     setCopied(true)
-
     setTimeout(() => {
       setCopied(false)
     }, 3000)
@@ -63,14 +61,9 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        `group/bento hover:border-purple/30 hover:shadow-purple/10 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.1] shadow-input transition-all duration-300 hover:shadow-xl md:rounded-3xl`,
+        "group/bento hover:border-purple/30 hover:shadow-purple/10 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-xl md:rounded-3xl",
         className,
       )}
-      style={{
-        background: "rgb(4,7,29)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-      }}
     >
       {/* Background Images Layer */}
       <div className="absolute inset-0 z-0">
@@ -115,21 +108,21 @@ export const BentoGridItem = ({
       >
         <div className="flex-1">
           {description && (
-            <div className="mb-2 font-sans text-sm font-light text-[#c1c2d3] md:text-xs lg:text-sm">
+            <div className="mb-2 font-sans text-sm font-light text-foreground/50 md:text-xs lg:text-sm">
               {description}
             </div>
           )}
-          <div className="mb-2 mt-2 font-sans text-xl font-bold leading-tight text-neutral-200 md:text-2xl lg:text-3xl">
+          <div className="mb-2 mt-2 font-sans text-xl font-bold leading-tight text-foreground md:text-2xl lg:text-3xl">
             {title}
           </div>
           {id === 5 && (
             <a
               className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-purple underline transition-all hover:gap-3 md:text-base lg:text-lg"
-              href="https://www.github.com/amrks7800/elegant-store"
+              href="https://www.github.com/amrks7800"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Elegant store
+              View my GitHub
             </a>
           )}
         </div>
@@ -141,19 +134,19 @@ export const BentoGridItem = ({
               {["React.js", "Next.js", "TypeScript"].map((item) => (
                 <div
                   key={item}
-                  className="rounded-lg bg-[#10132e] px-2 py-2 text-center text-[10px] text-white/70 transition-all hover:bg-[#1a1d3e] hover:text-white md:px-3 md:text-xs lg:px-3 lg:py-3 lg:text-sm"
+                  className="rounded-lg border border-border bg-secondary px-2 py-2 text-center text-[10px] text-foreground/70 transition-all hover:bg-secondary/80 hover:text-foreground md:px-3 md:text-xs lg:px-3 lg:py-3 lg:text-sm"
                 >
                   {item}
                 </div>
               ))}
-              <span className="hidden rounded-lg bg-[#10132e] px-3 py-3 md:block lg:py-4" />
+              <span className="hidden rounded-lg border border-border bg-secondary px-3 py-3 md:block lg:py-4" />
             </div>
             <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
-              <span className="hidden rounded-lg bg-[#10132e] px-3 py-3 md:block lg:py-4" />
-              {["Tailwind", "Redux", "Zod"].map((item) => (
+              <span className="hidden rounded-lg border border-border bg-secondary px-3 py-3 md:block lg:py-4" />
+              {["Node.js", "Go", "PostgreSQL"].map((item) => (
                 <div
                   key={item}
-                  className="rounded-lg bg-[#10132e] px-2 py-2 text-center text-[10px] text-white/70 transition-all hover:bg-[#1a1d3e] hover:text-white md:px-3 md:text-xs lg:px-3 lg:py-3 lg:text-sm"
+                  className="rounded-lg border border-border bg-secondary px-2 py-2 text-center text-[10px] text-foreground/70 transition-all hover:bg-secondary/80 hover:text-foreground md:px-3 md:text-xs lg:px-3 lg:py-3 lg:text-sm"
                 >
                   {item}
                 </div>
@@ -183,7 +176,6 @@ export const BentoGridItem = ({
               text={copied ? "Email copied!" : "Copy my email"}
               icon={<IoCopyOutline />}
               position="left"
-              otherClasses="bg-[#161a31] w-full"
               className="w-full!"
               handleClick={handleCopy}
             />

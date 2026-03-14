@@ -3,6 +3,7 @@
 import { IoColorPalette } from "react-icons/io5"
 import { Button } from "./ui/button"
 import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -13,10 +14,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { HiSun, HiMoon } from "react-icons/hi"
 
 const ThemeDialog = () => {
   const [open, setOpen] = useState(false)
   const [rendered, setRendered] = useState(false)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     setRendered(true)
@@ -28,24 +31,19 @@ const ThemeDialog = () => {
 
   const handleThemeChange = (formData: FormData) => {
     const color = formData.get("color") as string
-
-    console.log(color)
-
     if (!color) return
-    console.log(color)
-
     root.style.setProperty("--clr-primary-purple", color)
-
     setOpen(false)
   }
+
   return (
     <>
       <AlertDialog open={open} onOpenChange={setOpen}>
         <AlertDialogTrigger asChild>
           <Button
             variant={"ghost"}
-            title="Change the theme"
-            className="fixed bottom-5 left-5"
+            title="Change the accent color"
+            className="fixed bottom-5 left-5 h-10 w-10 rounded-full border border-border bg-card shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110"
             size={"icon"}
           >
             <IoColorPalette
@@ -53,35 +51,76 @@ const ThemeDialog = () => {
                 color: getComputedStyle(root).getPropertyValue(
                   "--clr-primary-purple",
                 ),
-
-                width: "30px",
-                height: "30px",
+                width: "20px",
+                height: "20px",
               }}
-              size={50}
             />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="border-border bg-card">
           <AlertDialogHeader>
-            <AlertDialogTitle>Change the theme</AlertDialogTitle>
-            <AlertDialogDescription className="sr-only">
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+            <AlertDialogTitle className="text-foreground">
+              Customize Theme
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-foreground/60">
+              Choose your accent color and toggle light/dark mode.
             </AlertDialogDescription>
           </AlertDialogHeader>
+
+          {/* Light / Dark Toggle */}
+          <div className="flex items-center justify-between rounded-xl border border-border bg-secondary/40 px-4 py-3">
+            <span className="text-sm font-medium text-foreground">
+              Color Mode
+            </span>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setTheme("light")}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-all duration-200 ${
+                  theme === "light"
+                    ? "bg-foreground text-background shadow-sm"
+                    : "text-foreground/60 hover:bg-secondary"
+                }`}
+              >
+                <HiSun className="h-3.5 w-3.5" />
+                Light
+              </button>
+              <button
+                onClick={() => setTheme("dark")}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-all duration-200 ${
+                  theme === "dark"
+                    ? "bg-foreground text-background shadow-sm"
+                    : "text-foreground/60 hover:bg-secondary"
+                }`}
+              >
+                <HiMoon className="h-3.5 w-3.5" />
+                Dark
+              </button>
+            </div>
+          </div>
+
           <form action={handleThemeChange}>
-            <input
-              type="color"
-              defaultValue={getComputedStyle(root).getPropertyValue(
-                "--clr-primary-purple",
-              )}
-              name="color"
-            />
-            <AlertDialogFooter>
-              <AlertDialogCancel type="button" onClick={() => setOpen(false)}>
+            <div className="flex items-center justify-between rounded-xl border border-border bg-secondary/40 px-4 py-3">
+              <span className="text-sm font-medium text-foreground">
+                Accent Color
+              </span>
+              <input
+                type="color"
+                defaultValue={getComputedStyle(root).getPropertyValue(
+                  "--clr-primary-purple",
+                )}
+                name="color"
+                className="h-9 w-16 cursor-pointer rounded-lg border-0 bg-transparent"
+              />
+            </div>
+            <AlertDialogFooter className="mt-4">
+              <AlertDialogCancel
+                type="button"
+                onClick={() => setOpen(false)}
+                className="border-border text-foreground"
+              >
                 Cancel
               </AlertDialogCancel>
-              <Button type="submit">Choose</Button>
+              <Button type="submit">Apply</Button>
             </AlertDialogFooter>
           </form>
         </AlertDialogContent>

@@ -4,7 +4,6 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Skills", link: "#skills" },
   { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
   { name: "Experience", link: "#exp" },
   { name: "Contact", link: "#contact" },
   {
@@ -17,7 +16,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication",
+    title: "I prioritize clear communication and end-to-end product ownership",
     description: "",
     className: "md:col-span-3 md:row-span-2 lg:col-span-2 lg:row-span-2",
     imgClassName: "w-full h-full opacity-90",
@@ -47,7 +46,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development",
+    title: "Fullstack engineer bridging UI and scalable backend systems",
     description: "",
     className: "md:col-span-3 md:row-span-1 lg:col-span-1",
     imgClassName: "",
@@ -57,7 +56,7 @@ export const gridItems = [
   },
   {
     id: 5,
-    title: "Built my first state management library",
+    title: "Built real-time sync engines & multilingual web platforms",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2 lg:col-span-2",
     imgClassName: "absolute right-0 bottom-0 w-48 md:w-72 lg:w-96 opacity-90",
@@ -89,8 +88,8 @@ export const projects = [
   },
   {
     id: 2,
-    title: "HomeLocator - Real Estate Agency App",
-    des: "Done as a freelancing gig for a real estate agency located in cairo",
+    title: "HomeLocator - Fullstack Real Estate Platform",
+    des: "Designed the backend data schema using MongoDB and Mongoose, with geospatial sorting APIs. Built an automated image processing pipeline with Sharp in Node.js.",
     img: "/hl.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "/shad.svg"],
     link: "https://github.com/amrks7800/home-locator",
@@ -98,7 +97,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Pulse - healthcare management tool",
+    title: "Pulse - Healthcare Management Tool",
     des: "A website to manage appointments between doctors and patients in a simple manner.",
     img: "/pulse.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/next.svg"],
@@ -107,8 +106,8 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+    title: "Animated Apple iPhone 3D Website",
+    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects.",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "https://github.com/amrks7800/iphone",
@@ -116,10 +115,10 @@ export const projects = [
   },
   {
     id: 5,
-    title: "StoreIt - the perfect cloud storage solution",
-    des: "Inspired by tech giants products like Google drive, storeit is the best cloud storage solution",
+    title: "StoreIt - Cloud Storage Solution",
+    des: "Inspired by Google Drive, StoreIt is a scalable cloud storage app using Next.js Server Components and Appwrite BaaS.",
     img: "/storeit.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "aws.svg"],
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg", "/aws.svg"],
     link: "https://github.com/amrks7800/storeit",
     live: "https://storeit-sk11.vercel.app/",
   },
@@ -135,9 +134,9 @@ export const testimonials = [
   },
   {
     quote:
-      "Amr is an exceptional front-end React developer. His attention to detail and ability to create user-friendly interfaces consistently exceed expectations. He combines technical proficiency with a keen eye for design, making him a valuable asset to any project.",
-    name: "Islam mohamed",
-    title: "PHP Laravel developer",
+      "Amr is an exceptional full-stack developer. His attention to detail and ability to create user-friendly interfaces consistently exceed expectations. He combines technical proficiency with a keen eye for design and a strong backend system mindset, making him a valuable asset to any project.",
+    name: "Islam Mohamed",
+    title: "PHP Laravel Developer",
     img: "/islam.jpg",
   },
 ]
@@ -147,16 +146,16 @@ export const companies = []
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Developer",
-    desc: "Assisted in the development of a web-based platform using React.js, and Next.js enhancing interactivity.",
+    title: "Fullstack Software Engineer — Vivionify",
+    desc: "Architected end-to-end multilingual web applications using Next.js and TypeScript. Built super admin architectures connecting frontend dashboards to underlying databases.",
     className: "md:col-span-2",
     thumbnail: "/viv.png",
   },
   {
     id: 2,
-    title: "Freelancer",
-    desc: "Worked and Participated on a lot of freelancing gigs for various clients",
-    className: "md:col-span-2", // change to md:col-span-2
+    title: "Fullstack React Native Engineer — Arabcode",
+    desc: "Developing production-grade cross-platform mobile apps (Tejwaly & Garage) using React Native. Designed a custom real-time sync engine with React Query and SSE.",
+    className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
 ]
@@ -165,14 +164,17 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/amrks7800",
   },
   {
     id: 2,
     img: "/twit.svg",
+    link: "https://twitter.com/amrks7800",
   },
   {
     id: 3,
     img: "/link.svg",
+    link: "https://www.linkedin.com/in/amr-khaled-mostafa/",
   },
 ]
 
